@@ -140,7 +140,7 @@ async def ai_command(ctx, *, prompt: str = ""):
                 )
                 return
 
-            footer = "\n\n✨ Powered by Google Gemini"
+            footer = "\n\n✨ Powered by Google Gemini 3.8 Flash"
             first_limit = 2000 - len(footer)
 
             first_chunk = answer[:first_limit]
