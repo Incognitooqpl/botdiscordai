@@ -9,11 +9,11 @@ from flask import Flask
 from google import genai
 from google.genai import types
 
-==============================
+# ==============================
 
-CONFIGURATION
+# CONFIGURATION
 
-==============================
+# ==============================
 
 DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -25,11 +25,11 @@ raise RuntimeError("Missing DISCORD_TOKEN environment variable.")
 if not GEMINI_API_KEY:
 raise RuntimeError("Missing GEMINI_API_KEY environment variable.")
 
-==============================
+# ==============================
 
-LOGGING
+# LOGGING
 
-==============================
+# ==============================
 
 logging.basicConfig(
 level=logging.INFO,
@@ -38,19 +38,19 @@ format="%(asctime)s | %(levelname)s | %(message)s",
 
 logger = logging.getLogger("incognito-ai")
 
-==============================
+# ==============================
 
-GEMINI CLIENT
+# GEMINI CLIENT
 
-==============================
+# ==============================
 
 gemini = genai.Client(api_key=GEMINI_API_KEY)
 
-==============================
+# ==============================
 
-WEB SERVER
+# WEB SERVER
 
-==============================
+# ==============================
 
 app = Flask(name)
 
@@ -74,11 +74,11 @@ app.run(
     use_reloader=False,
 )
 
-==============================
+# ==============================
 
-DISCORD BOT
+# DISCORD BOT
 
-==============================
+# ==============================
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -95,11 +95,11 @@ logger.info("Logged in as %s", bot.user)
 logger.info("Incognito AI is online!")
 logger.info("Gemini model: %s", GEMINI_MODEL)
 
-==============================
+# ==============================
 
-AI COMMAND
+# AI COMMAND
 
-==============================
+# ==============================
 
 @bot.command(name="ai")
 @commands.cooldown(1, 5, commands.BucketType.user)
@@ -173,11 +173,11 @@ async with ctx.typing():
             allowed_mentions=discord.AllowedMentions.none(),
         )
 
-==============================
+# ==============================
 
-HELP COMMAND
+# HELP COMMAND
 
-==============================
+# ==============================
 
 @bot.command(name="help")
 async def help_command(ctx):
@@ -207,11 +207,11 @@ await ctx.reply(
     allowed_mentions=discord.AllowedMentions.none(),
 )
 
-==============================
+# ==============================
 
-ERROR HANDLER
+# ERROR HANDLER
 
-==============================
+# ==============================
 
 @ai_command.error
 async def ai_command_error(ctx, error):
@@ -223,12 +223,12 @@ mention_author=False,
 )
 else:
 logger.exception("Discord command error: %s", error)
+ 
+# ==============================
 
-==============================
+# START
 
-START
-
-==============================
+# ==============================
 
 async def main():
 web_thread = Thread(
