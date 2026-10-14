@@ -17,7 +17,7 @@ Gemini
 
 gemini = genai.Client(api_key=GEMINI_API_KEY)
 
-Minimalny serwer HTTP dla monitoringu Render/UptimeRobot
+# Minimalny serwer HTTP dla monitoringu Render/UptimeRobot
 
 app = Flask(name)
 
