@@ -120,7 +120,7 @@ async def ai_command(ctx, *, prompt: str = ""):
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     system_instruction=(
-                        "Jesteś Incognito AI, pomocnym asystentem "
+                        "Jesteś ∞AI, pomocnym asystentem "
                         "na Discordzie. Domyślnie odpowiadasz po polsku. "
                         "Jeżeli użytkownik poprosi o inny język, "
                         "dostosuj się. Kod programistyczny formatuj "
